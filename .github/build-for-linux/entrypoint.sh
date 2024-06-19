@@ -37,7 +37,10 @@ tar -Jxvf ./node-v20.14.0-linux-x64.tar.xz
 export PATH=$(pwd)/node-v20.14.0-linux-x64/bin:$PATH
 npm install -g pnpm
 pnpm config set package-manager-strict false
-pnpm install
 
-cargo install --git https://github.com/tauri-apps/tauri --branch 1.x tauri-cli
-cargo tauri build --target $INPUT_TARGET
+pnpm install
+if [ "$INPUT_TARGET" = "x86_64-unknown-linux-gnu" ]; then
+    pnpm build --target $INPUT_TARGET
+else
+    pnpm build --target $INPUT_TARGET -b deb
+fi
