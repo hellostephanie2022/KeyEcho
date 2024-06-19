@@ -106,7 +106,9 @@ jobs:
           tag_name: v${{env.VERSION}}
           name: 'KeyEcho v${{env.VERSION}}'
           token: ${{ secrets.GITHUB_TOKEN }}
-          files: src-tauri/target/${{ matrix.target }}/release/bundle/deb/*.deb
+          files: |
+            src-tauri/target/${{ matrix.target }}/release/bundle/deb/*.deb
+            src-tauri/target/${{ matrix.target }}/release/bundle/rpm/*.rpm
 
   release-update:
     runs-on: ubuntu-latest
