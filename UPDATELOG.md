@@ -1,3 +1,11 @@
+## v0.0.4
+
+### Features
+
+- Test
+
+---
+
 ## v0.0.3
 
 ### Features
